@@ -1,0 +1,112 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--<bean id="helloSpring" class="com.spring.tutorial.HelloSpring">-->
+        <!--<property name="message" value="Welcome to see this sb" />-->
+    <!--</bean>-->
+
+    <!--<bean id="constructorInjection" class="com.spring.tutorial.SpringConstructorInjection">-->
+        <!--<constructor-arg name="id" value="10" type="int"/>-->
+        <!--<constructor-arg name="name" value="mike" />-->
+
+    <!--</bean>-->
+
+    <!--<bean id="lifecycle" class="com.spring.tutorial.LifecycleExample"-->
+    <!--init-method="onInitialization" destroy-method="onDestroy">-->
+
+
+    <!--</bean>-->
+
+
+    <!--<bean id="setterInject" class="com.spring.tutorial.SetterInjectionExample">-->
+        <!--<property name="id" value="100"/>-->
+        <!--<property name="name" value="John" />-->
+
+    <!--</bean>-->
+
+    <!--<bean id="playIns" class="com.spring.tutorial.PlayInstrument">-->
+        <!--&lt;!&ndash;<constructor-arg ref="drum"/>&ndash;&gt;-->
+        <!--<constructor-arg ref="piano"/>-->
+
+    <!--</bean>-->
+
+    <!--<bean id="drum" class="com.spring.tutorial.Drum">-->
+
+    <!--</bean>-->
+
+    <!--<bean id="piano" class="com.spring.tutorial.Piano">-->
+
+    <!--</bean>-->
+
+    <!--<bean id="injectionCollections" class="com.spring.tutorial.InjectCollections">-->
+        <!--<property name="integerList" >-->
+            <!--<list>-->
+                <!--<value>10</value>-->
+                <!--<value>20</value>-->
+                <!--<value>30</value>-->
+                <!--<value>10</value>-->
+            <!--</list>-->
+        <!--</property>-->
+
+        <!--<property name="integerSet">-->
+            <!--<set>-->
+                <!--<value>10</value>-->
+                <!--<value>20</value>-->
+                <!--<value>30</value>-->
+            <!--</set>-->
+        <!--</property>-->
+        <!--<property name="map">-->
+            <!--<map>-->
+               <!--<entry key="k1" value="v1"/>-->
+                <!--<entry key="k2" value="v2"/>-->
+                <!--<entry key="k3" value="v3"/>-->
+            <!--</map>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+
+    <!--<bean id="playInstrument" class="com.spring.tutorial.PlayInstrument"-->
+    <!--autowire="byName"/>-->
+
+    <!--<bean id="instrument" class="com.spring.tutorial.Piano"/>-->
+
+    <!--<bean id="playInstrument" class="com.spring.tutorial.PlayInstrument"-->
+          <!--autowire="byType" />-->
+
+    <!--<bean id="piano" class="com.spring.tutorial.Piano" autowire-candidate="false"/>-->
+
+    <!--<bean id="drum" class="com.spring.tutorial.Drum"/>-->
+
+    <!--<context:annotation-config />-->
+
+    <!--<bean id="annotation" class="com.spring.tutorial.AnnotationExample"/>-->
+
+    <!--<bean id="drum" class="com.spring.tutorial.Drum"/>-->
+    <!--<bean id="piano" class="com.spring.tutorial.Piano"/>-->
+
+    <bean id="aopExample" class="com.spring.tutorial.AOPExample">
+
+        <property name="id" value="20"/>
+        <property name="name" value="mike" />
+    </bean>
+
+    <bean id="beforeAdvise" class="com.spring.tutorial.BeforeAdviceExample"/>
+    <bean id="afterAdvise" class="com.spring.tutorial.AfterReturnExample"/>
+
+    <bean id="throwAdviseExample" class="com.spring.tutorial.ThrowAdviseExample"/>
+
+    <bean id="aopExampleBean" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="aopExample"/>
+
+        <property name="interceptorNames">
+            <list>
+                <value>throwAdviseExample</value>
+            </list>
+        </property>
+    </bean>
+    </beans>
